@@ -1,0 +1,36 @@
+libs do npm para consulta de frete e etc
+
+1. correios-brasil
+
+   Instalação: npm install correios-brasil
+   Exemplo:
+
+   ```
+   import { calcularPrecoPrazo } from 'correios-brasil';
+
+   const args = {
+   sCepOrigem: '01001-000',
+   sCepDestino: '20040-010',
+   nVlPeso: '1',
+   nCdFormato: '1',
+   nVlComprimento: '20',
+   nVlAltura: '20',
+   nVlLargura: '20',
+   nCdServico: ['04014'], // SEDEX
+   nVlDiametro: '0',
+   };
+
+   calcularPrecoPrazo(args).then(result => console.log(result));
+   ```
+
+2. cep-promise
+
+    Para consultas de CEP com fallback em múltiplos serviços.
+    Instalação: npm install cep-promise
+    Exemplo:
+
+    ```
+    import cep from 'cep-promise';
+
+    cep('01001000').then(console.log);
+    ```

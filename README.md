@@ -15,8 +15,8 @@ Atualmente, o projeto contém as seguintes rotas principais:
 7. **07_confirmOrder.mts** - Confirma o envio e bloqueia alterações no pedido.
 8. **08_generateLabel.mts** - Gera a etiqueta de envio.
 9. **09_printLabel.mts** - Imprime a etiqueta gerada.
-10. **10_trackShipment.mts** - (A fazer) Rastreia o envio.
-11. **11_notifyClient.mts** - (A fazer) Notifica o cliente (via e-mail/WhatsApp).
+10. **10_trackShipment.mts** - Rastreia o envio.
+11. **11_notifyClient.mts** - Notifica o cliente (via e-mail).
 
 ## 🛠 Tecnologias Utilizadas
 

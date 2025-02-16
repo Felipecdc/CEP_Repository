@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export const checkoutOrder = async (orderId: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN;
 

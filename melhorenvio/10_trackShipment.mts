@@ -1,6 +1,7 @@
 // 9e37daef-844e-4628-8d49-f660206fe682
 //   9e37da93-6a82-45dd-a815-3d5590500a5e - esse funcionou, se nao me engano foi o segundo id, id do checkcout acredito
 //   9e37daef-7d10-4189-932b-a654b56b2695
+import "dotenv/config";
 
 export const trackShipment = async (orderId: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN;

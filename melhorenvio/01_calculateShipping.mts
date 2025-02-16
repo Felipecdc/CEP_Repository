@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export const calculateShipping = async (origem: string, destino: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN;
 

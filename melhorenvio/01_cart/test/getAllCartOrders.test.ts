@@ -71,4 +71,18 @@ describe("createCartShippingOrder", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response.message).toBe("Falha na requisição da API");
   });
+
+  it("deve lidar com resposta de erro do servidor (500)", async () => {
+    fetchMock.mockResponseOnce(
+      JSON.stringify({ message: "Erro no servidor" }),
+      { status: 500 }
+    );
+
+    const response = await getAllCartOrders();
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(response.message).toBe(
+      'Erro ao enviar o pedido: {"message":"Erro no servidor"}'
+    );
+  });
 });

@@ -87,12 +87,28 @@ describe("getAllOrdersFromApi", () => {
     expect(response).toEqual({});
   });
 
-  it("deve tratar erro da API corretamente", async () => {
-    fetchMock.mockRejectOnce(new Error("Falha ao conectar com a API"));
+  it("deve lidar com erra de rede", async () => {
+    fetchMock.mockRejectOnce(new Error("Falha na conexão"));
 
     const response = await getAllOrdersFromApi();
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(response.message).toBe("Falha ao conectar com a API");
+    expect(response.message).toBe("Falha na conexão");
+  });
+
+  it("deve lidar com erro resposta de erro do servidor (500)", async () => {
+    fetchMock.mockResponseOnce(
+      JSON.stringify({ message: "Erro no servidor" }),
+      {
+        status: 500,
+      }
+    );
+
+    const response = await getAllOrdersFromApi();
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(response.message).toBe(
+      'Erro ao buscar orders: {"message":"Erro no servidor"}'
+    );
   });
 });

@@ -24,7 +24,7 @@ export const getCartOrderDetails = async (orderId: string) => {
     // Verifica se a resposta foi bem-sucedida
     if (!response.ok) {
       const errorDetails = await response.text(); // Lê detalhes do erro em texto
-      throw new Error(`Erro ao fazer checkout: ${errorDetails}`); // Lança erro com detalhes
+      throw new Error(`Erro ao buscar detalhes da order: ${errorDetails}`); // Lança erro com detalhes
     }
 
     const data = await response.json(); // Converte a resposta para JSON

@@ -17,11 +17,11 @@ describe("removeCartOrder", () => {
         success: true,
         status: 200,
         message: "Item excluído do carrinho com sucesso!",
-      })
+      }),
+      { status: 200 }
     );
 
     const response = await removeCartOrder(orderId);
-    console.log(response); // Para verificar o valor real
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith(
@@ -37,7 +37,11 @@ describe("removeCartOrder", () => {
     expect(response).toEqual({
       success: true,
       status: 200,
-      message: "Item excluído do carrinho com sucesso!",
+      data: {
+        success: true,
+        status: 200,
+        message: "Item excluído do carrinho com sucesso!",
+      },
     });
   });
 

@@ -98,9 +98,9 @@ export const sendOrderNotificationEmail = async (
 };
 
 // Teste rápido da função com dados fictícios
-sendOrderNotificationEmail(
-  "felipecdc09@gmail.com", // E-mail do cliente
-  "12345", // ID do pedido
-  "https://example.com/track/12345", // URL de rastreamento
-  "AF123456789" // Código de rastreio
-);
+// sendOrderNotificationEmail(
+//   "felipecdc09@gmail.com", // E-mail do cliente
+//   "12345", // ID do pedido
+//   "https://example.com/track/12345", // URL de rastreamento
+//   "AF123456789" // Código de rastreio
+// );

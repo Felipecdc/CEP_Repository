@@ -40,4 +40,4 @@ export const generateShippingLabelForOrder = async (orderId: string) => {
   }
 };
 
-generateShippingLabelForOrder("9e46840f-b2d5-4fb0-8c47-bc6a1ed89bc3");
+generateShippingLabelForOrder("");

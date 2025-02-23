@@ -40,4 +40,4 @@ export const checkoutOrderCreate = async (orderId: string) => {
   }
 };
 
-checkoutOrderCreate("9e3c744b-7551-47ff-813b-c2da5c919174");
+checkoutOrderCreate("9e46840f-b2d5-4fb0-8c47-bc6a1ed89bc3");

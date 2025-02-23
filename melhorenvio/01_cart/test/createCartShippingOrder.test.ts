@@ -1,5 +1,5 @@
 import fetchMock from "jest-fetch-mock";
-import { createCartShippingOrder } from "./01_createCartShippingOrder";
+import { createCartShippingOrder } from "../01_createCartShippingOrder";
 
 fetchMock.enableMocks();
 
@@ -55,9 +55,10 @@ describe("createCartShippingOrder", () => {
 
     const response = await createCartShippingOrder(mockData);
 
+    console.log(fetchMock.mock.calls); // Adiciona o log para ver os detalhes da chamada fetch
+
     // Verifique se o fetch foi chamado corretamente
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    // Alterando o teste para ser mais flexível na comparação dos headers e do corpo
     expect(fetchMock).toHaveBeenCalledWith(
       "https://sandbox.melhorenvio.com.br/api/v2/me/cart",
       expect.objectContaining({

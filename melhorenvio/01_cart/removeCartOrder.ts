@@ -30,22 +30,12 @@ export const removeCartOrder = async (orderId: string) => {
 
     try {
       const data = JSON.parse(text); // Tenta converter a resposta em JSON
-      console.log({
-        success: true, // Retorna sucesso se o pedido foi removido corretamente
-        status: response.status, // Retorna o status da resposta
-        data, // Retorna os dados da resposta
-      });
       return {
         success: true, // Retorna sucesso se o pedido foi removido corretamente
         status: response.status, // Retorna o status da resposta
         data, // Retorna os dados da resposta
       };
     } catch {
-      console.log({
-        status: response.status,
-        success: true,
-        message: "Item excluído do carrinho com sucesso!", // Caso não seja JSON, apenas retorna a mensagem
-      });
       return {
         status: response.status,
         success: true,
@@ -54,11 +44,6 @@ export const removeCartOrder = async (orderId: string) => {
     }
   } catch (error) {
     // Se ocorrer algum erro durante a requisição, retorna um erro com status 500
-    console.log({
-      success: false,
-      status: 500,
-      message: error instanceof Error ? error.message : "Erro desconhecido", // Detalhes do erro
-    });
     return {
       success: false,
       status: 500,
@@ -67,4 +52,4 @@ export const removeCartOrder = async (orderId: string) => {
   }
 };
 
-removeCartOrder("");
+const response = await removeCartOrder("");

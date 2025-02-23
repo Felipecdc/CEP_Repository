@@ -41,4 +41,4 @@ export const printShippingLabelForOrder = async (orderId: string) => {
 };
 
 // Executa a função passando o ID do pedido e exibe o resultado
-printShippingLabelForOrder("9e3a8403-7219-49c1-b7ad-ebfb2c008558");
+printShippingLabelForOrder("9e46840f-b2d5-4fb0-8c47-bc6a1ed89bc3");

@@ -1,6 +1,6 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
 
-const getAllOrdersFromApi = async () => {
+export const getAllOrdersFromApi = async () => {
   // Obtém o token de autenticação da variável de ambiente
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN;
 
@@ -25,10 +25,8 @@ const getAllOrdersFromApi = async () => {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
-    console.error("Erro ao obter os pedidos:", error);
     return error;
   }
 };

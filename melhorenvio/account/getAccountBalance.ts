@@ -31,12 +31,9 @@ export const getAccountBalance = async () => {
 
     // Extrai o saldo da conta, retornando 0 se não estiver disponível
     const balance = data.accounts?.[0]?.balance ?? 0;
-
-    console.log("Saldo:", balance); // Exibe o saldo no console
     return balance; // Retorna o saldo
   } catch (error) {
     // Em caso de erro, exibe a mensagem de erro no console
-    console.error("Erro:", error);
     return error; // Retorna o erro
   }
 };

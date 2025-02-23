@@ -28,15 +28,10 @@ export const getAllCartOrders = async () => {
     }
 
     const data = await response.json(); // Converte a resposta para JSON
-    console.log(data);
     return data; // Retorna os dados dos pedidos
   } catch (error) {
     // Caso ocorra um erro, retorna uma mensagem de erro
-    console.log({
-      success: false,
-      status: 500,
-      message: error instanceof Error ? error.message : "Erro desconhecido",
-    });
+
     return {
       success: false,
       status: 500,

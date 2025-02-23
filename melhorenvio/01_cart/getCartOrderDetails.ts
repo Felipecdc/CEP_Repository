@@ -28,10 +28,8 @@ export const getCartOrderDetails = async (orderId: string) => {
     }
 
     const data = await response.json(); // Converte a resposta para JSON
-    console.log(data);
     return data; // Retorna os dados do pedido
   } catch (error) {
-    console.log(error); // Exibe o erro no console
     return error; // Retorna o erro caso algo dê errado
   }
 };

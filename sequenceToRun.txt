@@ -1,0 +1,25 @@
+# Sequência de execução básica para enviar uma ordem
+
+1. cart/createCartShippingOrder          # Cria o pedido e associa ao carrinho.
+2. shipping/checkoutOrderCreate          # Finaliza o pedido e gera os dados de envio.
+3. shipping/generateShippingLabelForOrder # Gera a etiqueta de envio.
+4. shipping/printShippingLabelForOrder    # Imprime a etiqueta de envio.
+5. shipping/trackShipmentStatusForOrder   # Obtém o status da entrega.
+
+
+# Arquivos separados para operações adicionais
+
+# Gerenciamento de pedidos
+order/getAllOrdersFromApi               # Busca todas as ordens da API (https://sandbox.melhorenvio.com.br/api/v2/me/orders)
+order/getOrdersByStatusFromApi          # Busca ordens filtradas por status na API (https://sandbox.melhorenvio.com.br/api/v2/me/orders?status=<status>)
+
+# Cálculo e cancelamento de frete
+shipping/calculateShipment              # Calcula o custo do frete antes da compra.
+shipping/cancelShipment                 # Cancela um pedido antes do envio.
+
+# Envio de e-mail para o cliente
+send/sendOrderNotificationEmail         # Envia um e-mail de notificação para o cliente utilizando Nodemailer.
+
+# Consultas sobre a conta
+account/getAccountBalance               # Consulta o saldo da conta.
+account/getAccountInformation           # Obtém as informações da conta.

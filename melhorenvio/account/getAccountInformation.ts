@@ -28,11 +28,9 @@ export const getAccountInformation = async () => {
 
     // Converte a resposta em formato JSON
     const data = await response.json();
-    console.log(data); // Exibe as informações da conta no console
     return data; // Retorna as informações da conta
   } catch (error) {
     // Em caso de erro, exibe a mensagem de erro no console
-    console.log(error);
     return error; // Retorna o erro
   }
 };

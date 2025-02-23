@@ -18,9 +18,6 @@ export const generateShippingLabelForOrder = async (orderId: string) => {
     }),
   };
 
-  // Log do corpo da requisição para verificação
-  console.log("Corpo da requisição:", JSON.stringify(options.body, null, 2));
-
   try {
     // Faz a requisição para gerar a etiqueta (ambiente sandbox)
     const response = await fetch(
@@ -43,4 +40,4 @@ export const generateShippingLabelForOrder = async (orderId: string) => {
   }
 };
 
-generateShippingLabelForOrder("9e3478a5-84e5-4be8-94cc-82a936a8f28f");
+generateShippingLabelForOrder("9e46840f-b2d5-4fb0-8c47-bc6a1ed89bc3");

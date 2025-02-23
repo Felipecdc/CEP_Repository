@@ -93,7 +93,6 @@ export const sendOrderNotificationEmail = async (
     const info = await transporter.sendMail(mailOptions);
     return info; // Retorna a resposta do envio para quem chamou a função
   } catch (error) {
-    console.error("Erro ao enviar email:", error || "Erro desconhecido");
     return null; // Retorna null em caso de falha
   }
 };

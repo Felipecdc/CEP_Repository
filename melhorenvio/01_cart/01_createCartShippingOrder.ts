@@ -73,10 +73,8 @@ export async function createCartShippingOrder(data: SendOrderParams) {
     }
 
     const data = await response.json(); // Converte a resposta para JSON
-    console.log(data);
     return data; // Retorna os dados do pedido
   } catch (error) {
-    console.error("Erro do catch:", error); // Exibe o erro no console
     return error;
   }
 }
@@ -86,7 +84,7 @@ const data: SendOrderParams = {
   insurance_value: 0, // Sem seguro
   receipt: false, // Sem confirmação de recebimento
   own_hand: false, // Sem entrega em mãos
-  reverse: true, // Frete reverso
+  reverse: false, // Frete reverso
   non_commercial: true, // Envio não comercial
 
   from: {
@@ -117,4 +115,4 @@ const data: SendOrderParams = {
   ],
 };
 
-// createCartShippingOrder(data);
+createCartShippingOrder(data);

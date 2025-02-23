@@ -41,4 +41,4 @@ export const trackShipmentStatusForOrder = async (orderId: string) => {
 };
 
 // Chama a função passando um ID de pedido e exibe o resultado no console
-trackShipmentStatusForOrder("9e3c744b-7551-47ff-813b-c2da5c919174");
+trackShipmentStatusForOrder("9e467fd7-c98c-4f6e-9549-561a66a4f951");

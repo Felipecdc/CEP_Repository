@@ -20,6 +20,19 @@ export const sendOrderNotificationEmail = async (
   trackingUrl: string,
   trackingCode: string
 ) => {
+  if (!email) {
+    throw new Error("Email is required");
+  }
+  if (!orderId) {
+    throw new Error("Order ID is required");
+  }
+  if (!trackingUrl) {
+    throw new Error("Tracking url is required");
+  }
+  if (!trackingCode) {
+    throw new Error("Tracking code is required");
+  }
+
   // Configura o conteúdo do e-mail (remetente, destinatário, assunto e corpo HTML)
   const mailOptions = {
     from: process.env.EMAIL_USER, // Remetente (e-mail configurado no .env)
@@ -93,7 +106,10 @@ export const sendOrderNotificationEmail = async (
     const info = await transporter.sendMail(mailOptions);
     return info; // Retorna a resposta do envio para quem chamou a função
   } catch (error) {
-    return null; // Retorna null em caso de falha
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return "An unknown error occured"; // Retorna em caso de falha
   }
 };
 

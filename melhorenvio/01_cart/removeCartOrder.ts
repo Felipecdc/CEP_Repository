@@ -52,4 +52,4 @@ export const removeCartOrder = async (orderId: string) => {
   }
 };
 
-const response = await removeCartOrder("");
+removeCartOrder("");

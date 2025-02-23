@@ -55,8 +55,6 @@ describe("createCartShippingOrder", () => {
 
     const response = await createCartShippingOrder(mockData);
 
-    console.log(fetchMock.mock.calls); // Adiciona o log para ver os detalhes da chamada fetch
-
     // Verifique se o fetch foi chamado corretamente
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith(

@@ -32,10 +32,8 @@ export const trackShipmentStatusForOrder = async (orderId: string) => {
     }
 
     const data = await response.json(); // Converte a resposta em JSON
-    console.log(data);
     return data; // Retorna os dados do rastreamento
   } catch (error) {
-    console.log(error);
     return error; // Retorna o erro capturado
   }
 };

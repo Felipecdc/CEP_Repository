@@ -40,12 +40,10 @@ export const calculateShippingCost = async (
     const data = await response.json().catch((err) => {
       throw new Error("Erro ao processar a resposta JSON: " + err.message); // Trata erro no processamento da resposta JSON
     });
-    console.log(data);
     return data; // Retorna os dados da resposta
   } catch (error) {
-    console.log(error);
     return error; // Retorna o erro caso algo falhe
   }
 };
 
-calculateShippingCost("", "");
+// calculateShippingCost("", "");

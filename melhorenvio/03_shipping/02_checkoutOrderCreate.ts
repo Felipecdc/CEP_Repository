@@ -32,10 +32,8 @@ export const checkoutOrderCreate = async (orderId: string) => {
     }
 
     const data = await response.json(); // Converte a resposta para JSON
-    console.log(data);
     return data; // Retorna os dados do checkout
   } catch (error) {
-    console.log(error);
     return error; // Retorna o erro caso ocorra
   }
 };

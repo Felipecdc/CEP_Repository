@@ -32,12 +32,10 @@ export const cancelShipment = async (orderId: string) => {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
     return error;
   }
 };
 
-cancelShipment("");
+// cancelShipment("");

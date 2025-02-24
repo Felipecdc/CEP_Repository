@@ -32,10 +32,8 @@ export const generateShippingLabelForOrder = async (orderId: string) => {
     }
 
     const data = await response.json(); // Converte a resposta para JSON
-    console.log(data);
     return data; // Retorna os dados da etiqueta
   } catch (error) {
-    console.log(error);
     return error; // Retorna o erro capturado
   }
 };

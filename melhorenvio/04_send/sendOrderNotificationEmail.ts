@@ -4,8 +4,8 @@ import "dotenv/config";
 // Configura o serviço de envio de e-mails via Gmail usando o Nodemailer
 // É necessário gerar uma senha de app no Gmail para funcionar corretamente
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com", // Servidor SMTP do Gmail
-  port: 587, // Porta padrão para envio com STARTTLS
+  host: process.env.SMTP_HOST as string, // Servidor SMTP do Gmail
+  port: Number(process.env.SMTP_PORT), // Porta padrão para envio com STARTTLS
   secure: false, // STARTTLS é usado em vez de SSL
   auth: {
     user: process.env.EMAIL_USER, // E-mail fornecido pelo arquivo .env

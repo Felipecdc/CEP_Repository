@@ -61,8 +61,8 @@ Atualmente, o projeto contém as seguintes funcionalidades:
    MELHOR_ENVIO_AUTH_TOKEN=seu_token_aqui
    SMTP_HOST=smtp.seuprovedor.com
    SMTP_PORT=587
-   SMTP_USER=seuemail@dominio.com
-   SMTP_PASS=sua_senha
+   EMAIL_USER=seuemail@dominio.com
+   EMAIL_PASS=sua_senha
    ```
 
 ### 2️⃣ **Executando as Funcionalidades**

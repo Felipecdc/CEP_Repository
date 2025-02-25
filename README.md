@@ -1,30 +1,117 @@
 # 📦 Shipping & Tracking API Integration
 
-Este repositório é uma biblioteca pessoal criada para integrar diferentes APIs de **envio**, **rastreamento** e **gerenciamento de pedidos**. O objetivo é proporcionar uma maneira fácil de simular fretes, criar pedidos de envio, gerar e imprimir etiquetas, e outras funcionalidades relacionadas ao processo de envio de mercadorias. O projeto está sendo desenvolvido de forma modular, com a intenção de futuramente adicionar integrações com outras APIs de envio.
+<img src="https://source.unsplash.com/800x400/?logistics,delivery" alt="Shipping & Tracking" width="100%" />
+
+Este repositório é uma biblioteca modular para integrar APIs de **envio**, **rastreamento** e **gerenciamento de pedidos**. O objetivo é proporcionar uma maneira fácil e eficiente de simular fretes, criar pedidos de envio, gerar etiquetas e rastrear entregas.
 
 ## 🚀 Funcionalidades
 
-Atualmente, o projeto contém as seguintes rotas principais:
+Atualmente, o projeto contém as seguintes funcionalidades:
 
-1. **01_calculateShipping.mts** - Simula o frete antes da compra (essencial no checkout).
-2. **02_createOrder.mts** - Cria o pedido de envio após a compra.
-3. **03_getAllOrdersCart.mts** - Lista todos os pedidos realizados.
-4. **04_getOrderCart.mts** - Consulta um pedido específico.
-5. **05_removeOrder.mts** - Cancela um pedido não confirmado.
-6. **06_checkoutOrder.mts** - Confirma o pagamento para gerar a etiqueta.
-7. **07_confirmOrder.mts** - Confirma o envio e bloqueia alterações no pedido.
-8. **08_generateLabel.mts** - Gera a etiqueta de envio.
-9. **09_printLabel.mts** - Imprime a etiqueta gerada.
-10. **10_trackShipment.mts** - Rastreia o envio.
-11. **11_notifyClient.mts** - Notifica o cliente (via e-mail).
+### 📌 **Gerenciamento de Conta**
+
+- 🔍 **Obter Informações da Conta** → `getAccountInformation.ts`
+- 💰 **Consultar Saldo** → `getAccountBalance.ts`
+
+### 🛒 **Gerenciamento de Carrinho**
+
+- 🏷️ **Criar Pedido de Envio** → `createCartShippingOrder.ts`
+- 📋 **Listar Todos os Pedidos** → `getAllCartOrders.ts`
+- 📄 **Consultar Pedido Específico** → `getCartOrderDetails.ts`
+- ❌ **Remover Pedido do Carrinho** → `removeCartOrder.ts`
+
+### 📦 **Gerenciamento de Pedidos**
+
+- 📋 **Listar Todos os Pedidos** → `getAllOrdersFromApi.ts`
+- 📊 **Filtrar Pedidos por Status** → `getOrdersByStatusFromApi.ts`
+
+### 🚚 **Gerenciamento de Envios**
+
+- 💰 **Calcular Frete** → `calculateShippingCost.ts`
+- ✅ **Confirmar Pedido** → `checkoutOrderCreate.ts`
+- ❌ **Cancelar Envio** → `cancelShipment.ts`
+- 🏷️ **Gerar Etiqueta de Envio** → `generateShippingLabelForOrder.ts`
+- 🖨️ **Imprimir Etiqueta de Envio** → `printShippingLabelForOrder.ts`
+- 📍 **Rastrear Pedido** → `trackShipmentStatusForOrder.ts`
 
 ## 🛠 Tecnologias Utilizadas
 
-- **Node.js** - Para o desenvolvimento do backend.
-- **node-fetch** - Para integração com APIs externas de envio e rastreamento.
-- **dotenv** - Para armazenar variáveis de ambiente (como chaves de API).
-- **TypeScript** - Para tipagem e maior robustez no desenvolvimento.
+- **Node.js** → Para o desenvolvimento do backend.
+- **TypeScript** → Para segurança e robustez na codificação.
+- **node-fetch** → Para requisições HTTP com APIs externas.
+- **dotenv** → Para armazenar variáveis de ambiente de forma segura.
+- **Jest** → Para testes automatizados das integrações.
+
+## 📑 Como Usar
+
+### 1️⃣ **Configuração Inicial**
+
+1. Clone este repositório:
+   ```sh
+   git clone https://github.com/seuusuario/shipping-tracking-api.git
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   ```
+3. Configure as variáveis de ambiente no arquivo `.env`:
+   ```env
+   MELHOR_ENVIO_AUTH_TOKEN=seu_token_aqui
+   ```
+
+### 2️⃣ **Executando as Funcionalidades**
+
+Para calcular o frete, por exemplo:
+
+```ts
+import { calculateShippingCost } from "./melhorenvio/03_shipping/calculateShippingCost";
+
+calculateShippingCost({ origem: "SP", destino: "RJ", peso: 1.2 })
+  .then(console.log)
+  .catch(console.error);
+```
+
+### 3️⃣ **Rodando os Testes**
+
+```sh
+npm test
+```
+
+## 📸 Exemplos de Respostas
+
+### ✅ **Cancelamento de Envio**
+
+```json
+{
+  "success": true,
+  "message": "Shipment canceled successfully.",
+  "data": {
+    "order_id": "123456",
+    "status": "canceled",
+    "cancellation_reason": "Pedido do cliente"
+  }
+}
+```
+
+### 📦 **Cálculo de Frete**
+
+```json
+{
+  "origin": "SP",
+  "destination": "RJ",
+  "cost": 19.9,
+  "delivery_time": "3 dias úteis"
+}
+```
 
 ## 📝 Licença
 
-Este projeto está sob a licença XYZ. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+💡 **Dicas:**
+
+- 🔄 Atualize as credenciais da API no `.env` regularmente.
+- 🛠 Se precisar adicionar novas funcionalidades, siga a estrutura modular do projeto.
+- 🚀 Para contribuições, abra um PR com as melhorias! 😃

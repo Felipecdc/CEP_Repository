@@ -1,2 +1,18 @@
 .env
+
+# Dependências do Node.js
 node_modules/
+package-lock.json
+
+# Arquivos de build/transpiled (se estiver usando TypeScript)
+dist/
+out/
+build/
+
+# Configurações locais do editor/IDE
+.vscode/
+.idea/
+
+# Arquivos de logs e temporários
+*.log
+*.tmp

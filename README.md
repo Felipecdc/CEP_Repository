@@ -72,9 +72,10 @@ Para calcular o frete, por exemplo:
 ```ts
 import { calculateShippingCost } from "./melhorenvio/03_shipping/calculateShippingCost";
 
-calculateShippingCost("12345678", "12345678")
-  .then(console.log)
-  .catch(console.error);
+calculateShippingCost({
+  cepOrigem: "12345678",
+  cepDestino: "12345678",
+});
 ```
 
 Para enviar uma notificação de pedido por e-mail:
@@ -82,11 +83,12 @@ Para enviar uma notificação de pedido por e-mail:
 ```ts
 import { sendOrderNotificationEmail } from "./notifications/sendOrderNotificationEmail";
 
-sendOrderNotificationEmail(
-  "cliente@exemplo.com",
-  "Seu pedido foi confirmado!",
-  "123456"
-).then(() => console.log("E-mail enviado!"));
+sendOrderNotificationEmail({
+  email: "cliente@exemplo.com",
+  orderId: "12345",
+  trackingUrl: "https://example.com/track/12345",
+  trackingCode: "AF123456789",
+});
 ```
 
 ### 3️⃣ **Rodando os Testes**

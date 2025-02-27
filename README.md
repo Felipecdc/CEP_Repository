@@ -1,7 +1,5 @@
 # 📦 Shipping & Tracking API Integration
 
-<img src="https://source.unsplash.com/800x400/?shipping,courier" alt="Shipping & Tracking" width="100%" />
-
 Este repositório é uma biblioteca modular para integrar APIs de **envio**, **rastreamento** e **gerenciamento de pedidos**. O objetivo é proporcionar uma maneira fácil e eficiente de simular fretes, criar pedidos de envio, gerar etiquetas e rastrear entregas.
 
 ## 🚀 Funcionalidades

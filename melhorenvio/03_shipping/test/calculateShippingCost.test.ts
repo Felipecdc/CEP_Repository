@@ -13,7 +13,10 @@ describe("calculateShippingCost", () => {
       JSON.stringify({ id: 1, name: "PAC", price: 12.79 })
     );
 
-    const response = await calculateShippingCost("12345", "67890");
+    const response = await calculateShippingCost({
+      cepOrigim: "12345",
+      cepDestino: "67890",
+    });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith(
@@ -32,7 +35,10 @@ describe("calculateShippingCost", () => {
   it("deve retornar erro quando a resposta da API for inválida (vazia)", async () => {
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 });
 
-    const response = await calculateShippingCost("12345", "67890");
+    const response = await calculateShippingCost({
+      cepOrigim: "12345",
+      cepDestino: "67890",
+    });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toEqual({});
@@ -44,7 +50,10 @@ describe("calculateShippingCost", () => {
       { status: 500 }
     );
 
-    const response = await calculateShippingCost("12345", "67890");
+    const response = await calculateShippingCost({
+      cepOrigim: "12345",
+      cepDestino: "67890",
+    });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toBeInstanceOf(Error);
@@ -56,7 +65,10 @@ describe("calculateShippingCost", () => {
   it("deve lidar corretamente com erro de rede", async () => {
     fetchMock.mockRejectOnce(new Error("Network error"));
 
-    const response = await calculateShippingCost("12345", "67890");
+    const response = await calculateShippingCost({
+      cepOrigim: "12345",
+      cepDestino: "67890",
+    });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toBeInstanceOf(Error);
@@ -75,7 +87,10 @@ describe("calculateShippingCost", () => {
       { status: 422 }
     );
 
-    const response = await calculateShippingCost("", "");
+    const response = await calculateShippingCost({
+      cepOrigim: "",
+      cepDestino: "",
+    });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toBeInstanceOf(Error);
@@ -87,7 +102,10 @@ describe("calculateShippingCost", () => {
   it("deve lidar com erro 404 (não encontrado)", async () => {
     fetchMock.mockResponseOnce("Página não encontrada", { status: 404 });
 
-    const response = await calculateShippingCost("12345", "67890");
+    const response = await calculateShippingCost({
+      cepOrigim: "12345",
+      cepDestino: "67890",
+    });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toBeInstanceOf(Error);

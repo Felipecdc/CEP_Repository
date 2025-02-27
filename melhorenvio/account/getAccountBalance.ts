@@ -37,6 +37,3 @@ export const getAccountBalance = async () => {
     return error; // Retorna o erro
   }
 };
-
-// Chama a função para obter o saldo
-getAccountBalance();

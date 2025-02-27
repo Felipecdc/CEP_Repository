@@ -37,5 +37,3 @@ export const checkoutOrderCreate = async (orderId: string) => {
     return error; // Retorna o erro caso ocorra
   }
 };
-
-checkoutOrderCreate("");

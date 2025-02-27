@@ -37,6 +37,3 @@ export const trackShipmentStatusForOrder = async (orderId: string) => {
     return error; // Retorna o erro capturado
   }
 };
-
-// Chama a função passando um ID de pedido e exibe o resultado no console
-trackShipmentStatusForOrder("");

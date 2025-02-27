@@ -37,6 +37,3 @@ export const printShippingLabelForOrder = async (orderId: string) => {
     return error;
   }
 };
-
-// Executa a função passando o ID do pedido e exibe o resultado
-printShippingLabelForOrder("");

@@ -33,5 +33,3 @@ export const getCartOrderDetails = async (orderId: string) => {
     return error; // Retorna o erro caso algo dê errado
   }
 };
-
-getCartOrderDetails("");

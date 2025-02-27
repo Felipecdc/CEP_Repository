@@ -51,5 +51,3 @@ export const removeCartOrder = async (orderId: string) => {
     };
   }
 };
-
-removeCartOrder("");

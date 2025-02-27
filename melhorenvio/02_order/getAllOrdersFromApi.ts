@@ -30,5 +30,3 @@ export const getAllOrdersFromApi = async () => {
     return error;
   }
 };
-
-getAllOrdersFromApi();

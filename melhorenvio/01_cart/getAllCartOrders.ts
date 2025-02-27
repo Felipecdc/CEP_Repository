@@ -39,5 +39,3 @@ export const getAllCartOrders = async () => {
     };
   }
 };
-
-getAllCartOrders();

@@ -37,5 +37,3 @@ export const generateShippingLabelForOrder = async (orderId: string) => {
     return error; // Retorna o erro capturado
   }
 };
-
-generateShippingLabelForOrder("");

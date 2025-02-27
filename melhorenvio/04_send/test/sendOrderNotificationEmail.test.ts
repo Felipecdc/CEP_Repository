@@ -14,12 +14,12 @@ describe("sendOrderNotificationEmail", () => {
     const trackingUrl = "https://example.com/track/12345";
     const trackingCode = "AF123456789";
 
-    const response = await sendOrderNotificationEmail(
+    const response = await sendOrderNotificationEmail({
       email,
       orderId,
       trackingUrl,
-      trackingCode
-    );
+      trackingCode,
+    });
 
     expect(nodemailer.createTransport).toHaveBeenCalledTimes(1);
     expect(response).toHaveProperty("messageId");
@@ -31,7 +31,12 @@ describe("sendOrderNotificationEmail", () => {
     const trackingCode = "AF123456789";
 
     try {
-      await sendOrderNotificationEmail("", orderId, trackingUrl, trackingCode);
+      await sendOrderNotificationEmail({
+        email: "",
+        orderId,
+        trackingUrl,
+        trackingCode,
+      });
     } catch (error) {
       if (error instanceof Error) {
         expect(error.message).toBe("Email is required");
@@ -45,7 +50,12 @@ describe("sendOrderNotificationEmail", () => {
     const trackingUrl = "https://example.com/track/12345";
 
     try {
-      await sendOrderNotificationEmail(email, orderId, trackingUrl, "");
+      await sendOrderNotificationEmail({
+        email,
+        orderId,
+        trackingUrl,
+        trackingCode: "",
+      });
     } catch (error) {
       if (error instanceof Error) {
         expect(error.message).toBe("Tracking code is required");
@@ -59,7 +69,12 @@ describe("sendOrderNotificationEmail", () => {
     const trackingCode = "AF123456789";
 
     try {
-      await sendOrderNotificationEmail(email, orderId, "", trackingCode);
+      await sendOrderNotificationEmail({
+        email,
+        orderId,
+        trackingUrl: "",
+        trackingCode,
+      });
     } catch (error) {
       if (error instanceof Error) {
         expect(error.message).toBe("Tracking url is required");
@@ -73,7 +88,12 @@ describe("sendOrderNotificationEmail", () => {
     const trackingCode = "AF123456789";
 
     try {
-      await sendOrderNotificationEmail(email, "", trackingUrl, trackingCode);
+      await sendOrderNotificationEmail({
+        email,
+        orderId: "",
+        trackingUrl,
+        trackingCode,
+      });
     } catch (error) {
       if (error instanceof Error) {
         expect(error.message).toBe("Order ID is required");

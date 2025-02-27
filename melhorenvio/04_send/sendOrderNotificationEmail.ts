@@ -1,6 +1,13 @@
 import nodemailer from "nodemailer";
 import "dotenv/config";
 
+interface sendOrderNotificationEmailProps {
+  email: string;
+  orderId: string;
+  trackingUrl: string;
+  trackingCode: string;
+}
+
 // Configura o serviço de envio de e-mails via Gmail usando o Nodemailer
 // É necessário gerar uma senha de app no Gmail para funcionar corretamente
 const transporter = nodemailer.createTransport({
@@ -14,12 +21,12 @@ const transporter = nodemailer.createTransport({
 });
 
 // Função para enviar e-mail de notificação com os detalhes do pedido
-export const sendOrderNotificationEmail = async (
-  email: string,
-  orderId: string,
-  trackingUrl: string,
-  trackingCode: string
-) => {
+export const sendOrderNotificationEmail = async ({
+  email,
+  orderId,
+  trackingUrl,
+  trackingCode,
+}: sendOrderNotificationEmailProps) => {
   if (!email) {
     throw new Error("Email is required");
   }
@@ -113,10 +120,8 @@ export const sendOrderNotificationEmail = async (
   }
 };
 
-// Teste rápido da função com dados fictícios
-// sendOrderNotificationEmail(
-//   "felipecdc09@gmail.com", // E-mail do cliente
-//   "12345", // ID do pedido
-//   "https://example.com/track/12345", // URL de rastreamento
-//   "AF123456789" // Código de rastreio
-// );
+// EXEMPLO DE DADOS PARA ENVIAR
+// "felipecdc09@gmail.com", // E-mail do cliente
+// "12345", // ID do pedido
+// "https://example.com/track/12345", // URL de rastreamento
+// "AF123456789" // Código de rastreio

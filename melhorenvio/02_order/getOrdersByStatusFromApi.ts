@@ -33,4 +33,4 @@ export const getOrdersByStatusFromApi = async (status: string) => {
 };
 
 // Exemplo de uso da função, buscando apenas os pedidos com status 'posted'
-getOrdersByStatusFromApi("canceled");
+// getOrdersByStatusFromApi("canceled");

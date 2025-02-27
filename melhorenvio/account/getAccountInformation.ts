@@ -34,6 +34,3 @@ export const getAccountInformation = async () => {
     return error; // Retorna o erro
   }
 };
-
-// Chama a função para obter as informações da conta
-getAccountInformation();

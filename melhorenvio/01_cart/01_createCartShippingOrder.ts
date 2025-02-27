@@ -79,40 +79,38 @@ export async function createCartShippingOrder(data: SendOrderParams) {
   }
 }
 
-const data: SendOrderParams = {
-  service: 2, // Serviço escolhido
-  insurance_value: 0, // Sem seguro
-  receipt: false, // Sem confirmação de recebimento
-  own_hand: false, // Sem entrega em mãos
-  reverse: false, // Frete reverso
-  non_commercial: true, // Envio não comercial
+// const data: SendOrderParams = { // AQUI TEMOS UM EXEMPLO DE DADOS PARA ENVIO
+//   service: 2, // Serviço escolhido
+//   insurance_value: 0, // Sem seguro
+//   receipt: false, // Sem confirmação de recebimento
+//   own_hand: false, // Sem entrega em mãos
+//   reverse: false, // Frete reverso
+//   non_commercial: true, // Envio não comercial
 
-  from: {
-    name: "Felipe Castro",
-    address: "Rua João José Rodrigues, 226",
-    city: "Hortolândia",
-    postal_code: "13185411",
-    document: "123.456.789-09", // CPF fictício válido
-    phone: "19989435768",
-  },
+//   from: {
+//     name: "Felipe Castro",
+//     address: "Rua João José Rodrigues, 226",
+//     city: "Hortolândia",
+//     postal_code: "13185411",
+//     document: "123.456.789-09", // CPF fictício válido
+//     phone: "19989435768",
+//   },
 
-  to: {
-    name: "João da Silva",
-    address: "Avenida Brasil, 500",
-    city: "Campinas",
-    postal_code: "13040050",
-    document: "987.654.321-00", // CPF fictício válido
-    phone: "19999999999",
-  },
+//   to: {
+//     name: "João da Silva",
+//     address: "Avenida Brasil, 500",
+//     city: "Campinas",
+//     postal_code: "13040050",
+//     document: "987.654.321-00", // CPF fictício válido
+//     phone: "19999999999",
+//   },
 
-  volumes: [
-    {
-      height: 12, // Altura em cm
-      width: 18, // Largura em cm
-      length: 25, // Comprimento em cm
-      weight: 1.5, // Peso em kg
-    },
-  ],
-};
-
-// createCartShippingOrder(data);
+//   volumes: [
+//     {
+//       height: 12, // Altura em cm
+//       width: 18, // Largura em cm
+//       length: 25, // Comprimento em cm
+//       weight: 1.5, // Peso em kg
+//     },
+//   ],
+// };

@@ -1,5 +1,5 @@
 import fetchMock from "jest-fetch-mock";
-import { checkoutOrderCreate } from "../02_checkoutOrderCreate";
+import { checkoutOrderCreate } from "../checkoutOrderCreate";
 
 fetchMock.enableMocks();
 

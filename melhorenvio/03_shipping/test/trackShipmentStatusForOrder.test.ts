@@ -1,5 +1,5 @@
 import fetchMock from "jest-fetch-mock";
-import { trackShipmentStatusForOrder } from "../05_trackShipmentStatusForOrder";
+import { trackShipmentStatusForOrder } from "../trackShipmentStatusForOrder";
 
 fetchMock.enableMocks();
 

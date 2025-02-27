@@ -1,5 +1,5 @@
 import fetchMock from "jest-fetch-mock";
-import { createCartShippingOrder } from "../01_createCartShippingOrder";
+import { createCartShippingOrder } from "../createCartShippingOrder";
 
 fetchMock.enableMocks();
 

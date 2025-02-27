@@ -1,5 +1,5 @@
 import fetchMock from "jest-fetch-mock";
-import { printShippingLabelForOrder } from "../04_printShippingLabelForOrder";
+import { printShippingLabelForOrder } from "../printShippingLabelForOrder";
 
 fetchMock.enableMocks();
 

@@ -1,9 +1,9 @@
 import fetchMock from "jest-fetch-mock";
-import { trackShipmentStatusForOrder } from "../trackShipmentStatusForOrder";
+import { trackShipmentStatusById } from "../trackShipmentStatusById";
 
 fetchMock.enableMocks();
 
-describe("trackShipmentStatusForOrder", () => {
+describe("trackShipmentStatusById", () => {
   beforeEach(() => {
     fetchMock.resetMocks();
   });
@@ -15,7 +15,7 @@ describe("trackShipmentStatusForOrder", () => {
       })
     );
 
-    const response = await trackShipmentStatusForOrder("123456");
+    const response = await trackShipmentStatusById("123456");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toEqual({
@@ -26,7 +26,7 @@ describe("trackShipmentStatusForOrder", () => {
   it("deve retornar erro quando a resposta da API for inválida", async () => {
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 });
 
-    const response = await trackShipmentStatusForOrder("123456");
+    const response = await trackShipmentStatusById("123456");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toEqual({});
@@ -38,7 +38,7 @@ describe("trackShipmentStatusForOrder", () => {
       { status: 500 }
     );
 
-    const response = await trackShipmentStatusForOrder("123456");
+    const response = await trackShipmentStatusById("123456");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response.message).toBe(
@@ -49,7 +49,7 @@ describe("trackShipmentStatusForOrder", () => {
   it("deve lidar com erro de rede", async () => {
     fetchMock.mockRejectOnce(new Error("Network error"));
 
-    const response = await trackShipmentStatusForOrder("123456");
+    const response = await trackShipmentStatusById("123456");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response.message).toEqual("Network error");
@@ -67,7 +67,7 @@ describe("trackShipmentStatusForOrder", () => {
       { status: 422 }
     );
 
-    const response = await trackShipmentStatusForOrder("");
+    const response = await trackShipmentStatusById("");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toBeInstanceOf(Error);
@@ -79,7 +79,7 @@ describe("trackShipmentStatusForOrder", () => {
   it("deve lidar com erro 404 (não encontrado)", async () => {
     fetchMock.mockResponseOnce("Página não encontrada", { status: 404 });
 
-    const response = await trackShipmentStatusForOrder("123456");
+    const response = await trackShipmentStatusById("123456");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(response).toBeInstanceOf(Error);

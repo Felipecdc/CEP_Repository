@@ -1,7 +1,7 @@
 import "dotenv/config"; // Importa as variáveis de ambiente do arquivo .env
 
 // Função assíncrona para rastrear envio pelo Melhor Envio
-export const trackShipmentStatusForOrder = async (orderId: string) => {
+export const trackShipmentStatusById = async (orderId: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN; // Obtém o token de autenticação da variável de ambiente
 
   // Configuração da requisição para a API

@@ -23,7 +23,7 @@ export const calculateShippingCost = async ({
   try {
     // Envia a requisição para calcular o frete
     const response = await fetchParams({
-      method: "DELETE",
+      method: "POST",
       environment: "sandbox",
       path: "/api/v2/me/shipment/calculate",
       token: token,

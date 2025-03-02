@@ -1,25 +1,19 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 // Função assíncrona para buscar todos os pedidos no Melhor Envio
 export const getAllCartOrders = async () => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN; // Obtém o token de autenticação da variável de ambiente
 
-  // Configuração da requisição para a API (GET para obter todos os pedidos)
-  const options = {
-    method: "GET", // Método GET para buscar informações
-    headers: {
-      Accept: "application/json", // Espera resposta em JSON
-      Authorization: `Bearer ${token}`, // Insere o token de autenticação no cabeçalho
-      "User-Agent": "Aplicação (email para contato técnico)", // Identificação da aplicação
-    },
-  };
-
   try {
     // Envia a requisição para buscar todos os pedidos
-    const response = await fetch(
-      "https://sandbox.melhorenvio.com.br/api/v2/me/cart",
-      options
-    );
+    const response = await fetchParams({
+      method: "GET",
+      environment: "sandbox",
+      path: "/api/v2/me/cart",
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+    });
 
     // Verifica se a resposta foi bem-sucedida
     if (!response.ok) {

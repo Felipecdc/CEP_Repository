@@ -1,4 +1,5 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 interface calculateShippingCostProps {
   cepOrigim: string;
@@ -21,19 +22,14 @@ export const calculateShippingCost = async ({
 
   try {
     // Envia a requisição para calcular o frete
-    const response = await fetch(
-      "https://sandbox.melhorenvio.com.br/api/v2/me/shipment/calculate",
-      {
-        method: "POST", // Método POST para enviar os dados
-        headers: {
-          Authorization: `Bearer ${token}`, // Insere o token de autenticação no cabeçalho
-          "Content-Type": "application/json", // Define o tipo de conteúdo como JSON
-          Accept: "application/json", // Espera resposta em JSON
-          "User-Agent": "Aplication test - Email para contato", // Identificação da aplicação
-        },
-        body: JSON.stringify(requestBody), // Corpo da requisição em formato JSON
-      }
-    );
+    const response = await fetchParams({
+      method: "DELETE",
+      environment: "sandbox",
+      path: "/api/v2/me/shipment/calculate",
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+      requestBody: requestBody,
+    });
 
     // Verifica se a resposta foi bem-sucedida
     if (!response.ok) {

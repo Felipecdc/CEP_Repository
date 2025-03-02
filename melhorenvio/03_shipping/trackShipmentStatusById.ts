@@ -1,29 +1,26 @@
 import "dotenv/config"; // Importa as variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 // Função assíncrona para rastrear envio pelo Melhor Envio
 export const trackShipmentStatusById = async (orderId: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN; // Obtém o token de autenticação da variável de ambiente
 
   // Configuração da requisição para a API
-  const options = {
-    method: "POST", // Método POST para envio de dados
-    headers: {
-      Accept: "application/json", // Aceita resposta em JSON
-      "Content-type": "application/json", // Envia o corpo da requisição em JSON
-      Authorization: `Bearer ${token}`, // Insere o token para autenticação
-      "User-Agent": "Aplicação (email para contato técnico)", // Identificação da aplicação
-    },
-    body: JSON.stringify({
-      orders: [orderId], // Corpo da requisição: array com IDs de pedidos
-    }),
+  const requestBody = {
+    orders: [orderId], // Corpo da requisição: array com IDs de pedidos
   };
 
   try {
     // Faz a requisição à API do Melhor Envio (ambiente sandbox)
-    const response = await fetch(
-      "https://sandbox.melhorenvio.com.br/api/v2/me/shipment/tracking",
-      options
-    );
+
+    const response = await fetchParams({
+      method: "POST",
+      environment: "sandbox",
+      path: "/api/v2/me/shipment/tracking",
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+      requestBody: requestBody,
+    });
 
     // Verifica se a resposta foi bem-sucedida (status 200-299)
     if (!response.ok) {

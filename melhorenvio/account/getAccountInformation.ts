@@ -1,24 +1,20 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 // Função para obter informações da conta do Melhor Envio
 export const getAccountInformation = async () => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN; // Obtém o token de autenticação da variável de ambiente
 
-  const options = {
-    method: "GET", // Define o método HTTP como GET para buscar informações
-    headers: {
-      Accept: "application/json", // Define que a resposta esperada é em formato JSON
-      Authorization: `Bearer ${token}`, // Inclui o token no cabeçalho de autorização
-      "User-Agent": "Aplicação (email para contato técnico)", // Define o user-agent para identificar a aplicação
-    },
-  };
-
   try {
     // Faz a requisição para a API do Melhor Envio para obter informações da conta
-    const response = await fetch(
-      "https://sandbox.melhorenvio.com.br/api/v2/me", // URL da API para obter os dados da conta
-      options
-    );
+
+    const response = await fetchParams({
+      method: "GET",
+      environment: "sandbox",
+      path: "/api/v2/me",
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+    });
 
     // Se a resposta da API não for bem-sucedida (erro HTTP)
     if (!response.ok) {

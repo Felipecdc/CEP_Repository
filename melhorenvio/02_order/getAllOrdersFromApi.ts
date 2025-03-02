@@ -1,23 +1,18 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 export const getAllOrdersFromApi = async () => {
   // Obtém o token de autenticação da variável de ambiente
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN;
 
-  const options = {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${token}`,
-      "User-Agent": "Aplicação (email para contato técnico)",
-    },
-  };
-
   try {
-    const response = await fetch(
-      "https://sandbox.melhorenvio.com.br/api/v2/me/orders",
-      options
-    );
+    const response = await fetchParams({
+      method: "GET",
+      environment: "sandbox",
+      path: "/api/v2/me/orders",
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+    });
 
     if (!response.ok) {
       const errorDetails = await response.text(); // Obtém detalhes do erro

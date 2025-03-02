@@ -1,25 +1,19 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 // Função assíncrona para remover um pedido do carrinho no Melhor Envio
 export const removeCartOrder = async (orderId: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN; // Obtém o token de autenticação da variável de ambiente
 
-  // Configuração da requisição para a API (DELETE para remover o pedido)
-  const options = {
-    method: "DELETE", // Método DELETE para remover um pedido
-    headers: {
-      Accept: "application/json", // Espera resposta em JSON
-      Authorization: `Bearer ${token}`, // Insere o token de autenticação no cabeçalho
-      "User-Agent": "Aplicação (email para contato técnico)", // Identificação da aplicação
-    },
-  };
-
   try {
     // Envia a requisição para remover o pedido do carrinho
-    const response = await fetch(
-      `https://sandbox.melhorenvio.com.br/api/v2/me/cart/${orderId}`,
-      options
-    );
+    const response = await fetchParams({
+      method: "DELETE",
+      environment: "sandbox",
+      path: `/api/v2/me/cart/${orderId}`,
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+    });
 
     const text = await response.text(); // Lê a resposta como texto
 

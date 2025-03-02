@@ -1,4 +1,5 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
+import { fetchParams } from "../bin/fetchParams";
 
 // Definição de interface para representar o endereço
 interface Address {
@@ -52,19 +53,14 @@ export async function createCartShippingOrder(data: SendOrderParams) {
 
   try {
     // Envia a requisição para criar o pedido no Melhor Envio
-    const response = await fetch(
-      "https://sandbox.melhorenvio.com.br/api/v2/me/cart",
-      {
-        method: "POST", // Método POST para enviar os dados
-        headers: {
-          Accept: "application/json", // Espera resposta em JSON
-          "Content-Type": "application/json", // Define o tipo de conteúdo como JSON
-          Authorization: `Bearer ${token}`, // Insere o token de autenticação no cabeçalho
-          "User-Agent": "minhaaplicacao@example.com", // Identificação da aplicação
-        },
-        body: JSON.stringify(requestBody), // Corpo da requisição em formato JSON
-      }
-    );
+    const response = await fetchParams({
+      method: "POST",
+      environment: "sandbox",
+      path: "/api/v2/me/cart",
+      token: token,
+      userAgent: "minhaaplicacao@example.com",
+      requestBody: requestBody,
+    });
 
     // Verifica se a resposta foi bem-sucedida
     if (!response.ok) {

@@ -31,7 +31,6 @@ Atualmente, o projeto contém as seguintes funcionalidades:
 - 🏷️ **Gerar Etiqueta de Envio** → `generateShippingLabelForOrder.ts`
 - 🖨️ **Imprimir Etiqueta de Envio** → `printShippingLabelForOrder.ts`
 - 📍 **Rastrear Pedido** → `trackShipmentStatusForOrder.ts`
-- 📧 **Enviar Notificação de Pedido por E-mail** → `sendOrderNotificationEmail.ts`
 
 ## 🛠 Tecnologias Utilizadas
 
@@ -39,7 +38,6 @@ Atualmente, o projeto contém as seguintes funcionalidades:
 - **TypeScript** → Para segurança e robustez na codificação.
 - **node-fetch** → Para requisições HTTP com APIs externas.
 - **dotenv** → Para armazenar variáveis de ambiente de forma segura.
-- **nodemailer** → Para envio de notificações por e-mail.
 - **Jest** → Para testes automatizados das integrações.
 
 ## 📑 Como Usar
@@ -57,10 +55,6 @@ Atualmente, o projeto contém as seguintes funcionalidades:
 3. Configure as variáveis de ambiente no arquivo `.env`:
    ```env
    MELHOR_ENVIO_AUTH_TOKEN=seu_token_aqui
-   SMTP_HOST=smtp.seuprovedor.com
-   SMTP_PORT=587
-   EMAIL_USER=seuemail@dominio.com
-   EMAIL_PASS=sua_senha
    ```
 
 ### 2️⃣ **Executando as Funcionalidades**
@@ -76,24 +70,13 @@ calculateShippingCost({
 });
 ```
 
-Para enviar uma notificação de pedido por e-mail:
-
-```ts
-import { sendOrderNotificationEmail } from "./notifications/sendOrderNotificationEmail";
-
-sendOrderNotificationEmail({
-  email: "cliente@exemplo.com",
-  orderId: "12345",
-  trackingUrl: "https://example.com/track/12345",
-  trackingCode: "AF123456789",
-});
-```
+````
 
 ### 3️⃣ **Rodando os Testes**
 
 ```sh
 npm test
-```
+````
 
 ## 📸 Exemplos de Respostas
 

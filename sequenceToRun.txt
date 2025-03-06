@@ -17,9 +17,6 @@ order/getOrdersByStatusFromApi          # Busca ordens filtradas por status na A
 shipping/calculateShipment              # Calcula o custo do frete antes da compra.
 shipping/cancelShipment                 # Cancela um pedido antes do envio.
 
-# Envio de e-mail para o cliente
-send/sendOrderNotificationEmail         # Envia um e-mail de notificação para o cliente utilizando Nodemailer.
-
 # Consultas sobre a conta
 account/getAccountBalance               # Consulta o saldo da conta.
 account/getAccountInformation           # Obtém as informações da conta.

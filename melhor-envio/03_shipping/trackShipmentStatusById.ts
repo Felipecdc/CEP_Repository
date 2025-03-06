@@ -1,5 +1,5 @@
 import "dotenv/config"; // Importa as variáveis de ambiente do arquivo .env
-import { fetchParams } from "../bin/fetchParams";
+import { fetchParams } from "../../bin/fetchParams";
 
 // Função assíncrona para rastrear envio pelo Melhor Envio
 export const trackShipmentStatusById = async (orderId: string) => {

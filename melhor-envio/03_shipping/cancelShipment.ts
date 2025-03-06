@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { fetchParams } from "../bin/fetchParams";
+import { fetchParams } from "../../bin/fetchParams";
 
 export const cancelShipment = async (orderId: string) => {
   const token = process.env.MELHOR_ENVIO_AUTH_TOKEN;

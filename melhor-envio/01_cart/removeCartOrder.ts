@@ -1,5 +1,5 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
-import { fetchParams } from "../bin/fetchParams";
+import { fetchParams } from "../../bin/fetchParams";
 
 // Função assíncrona para remover um pedido do carrinho no Melhor Envio
 export const removeCartOrder = async (orderId: string) => {

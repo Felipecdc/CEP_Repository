@@ -1,5 +1,5 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
-import { fetchParams } from "../bin/fetchParams";
+import { fetchParams } from "../../bin/fetchParams";
 
 // Função assíncrona para gerar a etiqueta de envio pelo Melhor Envio
 export const generateShippingLabelForOrder = async (orderId: string) => {

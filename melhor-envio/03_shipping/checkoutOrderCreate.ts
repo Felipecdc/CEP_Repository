@@ -1,5 +1,5 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
-import { fetchParams } from "../bin/fetchParams";
+import { fetchParams } from "../../bin/fetchParams";
 
 // Função assíncrona para fazer o checkout do pedido no Melhor Envio
 export const checkoutOrderCreate = async (orderId: string) => {

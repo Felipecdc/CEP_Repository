@@ -1,5 +1,5 @@
 import "dotenv/config"; // Importa variáveis de ambiente do arquivo .env
-import { fetchParams } from "../bin/fetchParams";
+import { fetchParams } from "../../bin/fetchParams";
 
 // Definição de interface para representar o endereço
 interface Address {
